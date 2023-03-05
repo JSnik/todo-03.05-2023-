@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="content-left">
+        <div class="title">
+
+        </div>
+        <div class="text">
+            <span>
+              <ng-container *ngIf="isGeo">
+              {{textGeoVersion | translate}}
+              </ng-container>
+              <ng-container *ngIf="!isGeo">
+              {{textGeoVersion}}
+              </ng-container>
+            </span>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn btn-primary" (click)="isGeo = !isGeo">
+          <ng-container *ngIf="isGeo">
+            translate to Geo
+          </ng-container>
+          <ng-container *ngIf="!isGeo">
+            translate to Eng
+          </ng-container>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="content-right">
+        <div class="input-text">
+          <form [formGroup]="form">
+            <textarea formControlName="input" (keyup.enter)="compare()"></textarea>
+          </form>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn btn-primary" (click)="compare()">
+          <ng-container *ngIf="true">
+            Compare
+          </ng-container>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
