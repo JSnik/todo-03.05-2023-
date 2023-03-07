@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import {RouterModule} from "@angular/router";
-import { TranslatePipe } from './pipes/translate.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HighlighterPipe} from "./pipes/highlighter.pipe";
 
 const routes = [
   {
@@ -15,7 +15,7 @@ const routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    TranslatePipe
+    HighlighterPipe
   ],
   imports: [
     CommonModule,
