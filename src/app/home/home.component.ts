@@ -28,7 +28,10 @@ export class HomeComponent implements OnInit{
 
   comp: boolean = false;
   compare() {
-    if (this.textEngVersion.includes(this.form.value.input.trim())) {
+    if (!this.form.value.input.trim()) {
+      this.comp = false;
+    }
+    else if (this.textEngVersion.includes(this.form.value.input.trim())) {
       this.comp = true;
     } else {
       window.alert('Nothing was found, check spelling, Big-small Letters and spaces')
