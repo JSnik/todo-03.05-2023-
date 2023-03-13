@@ -1,33 +1,34 @@
 <div class="wrapper">
   <div class="row">
     <div class="col-md-6">
-      <div class="content-left">
-        <div class="title">
-
-        </div>
-        <div class="text" [innerHTML]="textEngVersion | highlighter: form.value.input" *ngIf="comp">
-        </div>
-        <div *ngIf="!comp" class="text">
-          <span>
-            {{textEngVersion }}
-          </span>
+        <h4 style="text-align: center">compared by right side text</h4>
+        <div class="input-text">
+          <form [formGroup]="form" (keyup.enter)="compare()">
+            <textarea formControlName="inputFirst"></textarea>
+          </form>
         </div>
       </div>
-    </div>
     <div class="col-md-6">
       <div class="content-right">
+        <h4 style="text-align: center">comparing to the left side text</h4>
         <div class="input-text">
-          <form [formGroup]="form">
-            <textarea formControlName="input" (keyup.enter)="compare()" (keydown)="returnDef()"></textarea>
+          <form [formGroup]="form" (keyup.enter)="compare()">
+            <textarea formControlName="input"></textarea>
           </form>
         </div>
       </div>
       <div class="btns">
-        <button class="btn btn-primary" (click)="compare()">
+        <button class="btn btn-primary" (click)="compare()" >
           <ng-container *ngIf="true">
             Compare
           </ng-container>
         </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 style="text-align: center">Here you can see which letter was added in green and which one is missing in red and if it's without color it means that this letter was also used in the left side</h3>
+        <div class="text diff" [innerHTML]="diffHtml"></div>
       </div>
     </div>
   </div>

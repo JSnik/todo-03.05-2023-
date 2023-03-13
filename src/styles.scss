@@ -7,3 +7,15 @@ textarea {
   height: 250px;
   border-radius: 10px;
 }
+del {
+  text-decoration: none;
+  background: red;
+}
+ins {
+  text-decoration: none;
+  background: green;
+}
+
+.diff {
+  font-size: 20px;
+}
